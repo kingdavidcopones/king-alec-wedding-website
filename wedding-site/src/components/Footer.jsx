@@ -1,9 +1,17 @@
 import './Footer.css'
 
+const NAV_LINKS = [
+  { label: 'Their Story', href: '#love-story' },
+  { label: 'Details', href: '#details' },
+  { label: 'Entourage', href: '#entourage' },
+  { label: 'RSVP', href: '#rsvp' },
+]
+
 export default function Footer() {
   return (
     <footer className="footer" role="contentinfo">
       <div className="section-container footer__inner">
+
         <div className="footer__logo-wrap">
           <img
             src="/king-and-alec-logo-white.svg"
@@ -12,10 +20,13 @@ export default function Footer() {
           />
         </div>
 
-        <div className="footer__center">
-          <p className="footer__date">April 10, 2027</p>
-          <p className="footer__venue">Our Haven, Tagaytay City</p>
-        </div>
+        <nav className="footer__nav" aria-label="Footer navigation">
+          {NAV_LINKS.map((link) => (
+            <a key={link.label} href={link.href} className="footer__nav-link">
+              {link.label}
+            </a>
+          ))}
+        </nav>
 
         <div className="footer__contact">
           <p className="footer__contact-label">RSVP Contact</p>
@@ -28,15 +39,14 @@ export default function Footer() {
             <span className="footer__contact-num">(+63) 927 556 9304</span>
           </a>
         </div>
+
       </div>
 
       <div className="footer__bottom">
         <div className="section-container footer__bottom-inner">
-          <p className="footer__copy">
-            Made with love for King &amp; Alec &mdash; April 10, 2027
-          </p>
-          <a href="#rsvp" className="footer__back-cta btn-primary footer__rsvp-btn">
-            RSVP
+          <p className="footer__copy">King &amp; Alec Wedding 2027</p>
+          <a href="mailto:kingalec.wedding@gmail.com" className="footer__email">
+            kingalec.wedding@gmail.com
           </a>
         </div>
       </div>

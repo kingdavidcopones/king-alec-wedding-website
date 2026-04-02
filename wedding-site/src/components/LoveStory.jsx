@@ -157,40 +157,64 @@ export default function LoveStory() {
         </div>
       </div>
 
-      {/* ── Narrative paragraphs ──────────────────────────────────────────── */}
-      <div className="love-story__narrative">
-        <div className="love-story__paragraph love-story__paragraph--left" ref={addParagraphRef}>
-          <div className="love-story__para-inner">
-            <p>
-              Their story did not begin with grand gestures or dramatic first meetings.
-              It started long before they even realized it, as{' '}
-              <em className="love-story__em">childhood churchmates.</em>
-            </p>
+      {/* ── 3-column editorial grid ───────────────────────────────────────── */}
+      <div className="section-container love-story__editorial">
+
+        {/* Left: rect image on top, body text below */}
+        <div className="love-story__col love-story__col--left" ref={addParagraphRef}>
+          <div className="love-story__col-img-wrap love-story__col-img--rect">
+            <img
+              src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80"
+              alt="Venue interior"
+              className="love-story__col-img"
+              loading="lazy"
+            />
+            <div className="love-story__col-grain" aria-hidden="true" />
+          </div>
+          <p className="love-story__col-text">
+            Their story did not begin with grand gestures or dramatic first meetings.
+            It started long before they even realized it, as{' '}
+            <em className="love-story__em">childhood churchmates.</em>{' '}
+            Through the years, they walked side by side in different seasons of life,
+            never really knowing that the love they were looking for was already right there.
+          </p>
+        </div>
+
+        {/* Center: tall portrait anchor — breaks above the row */}
+        <div className="love-story__col love-story__col--center">
+          <div className="love-story__col-img-wrap love-story__col-img--portrait">
+            <img
+              src="https://images.unsplash.com/photo-1529634806015-b5958f0b5f93?auto=format&fit=crop&w=900&q=80"
+              alt="King and Alec"
+              className="love-story__col-img"
+              loading="lazy"
+            />
+            <div className="love-story__col-grain" aria-hidden="true" />
           </div>
         </div>
 
-        <div className="love-story__paragraph love-story__paragraph--right" ref={addParagraphRef}>
-          <div className="love-story__para-inner">
-            <p>
-              In 2016, Precious and King reconnected and quickly became best friends —
-              the kind who shared everything, from everyday stories to their{' '}
-              <em className="love-story__em love-story__em--pink">"love problems."</em>{' '}
-              Through the years, they walked side by side in different seasons of life,
-              never really knowing that the love they were both looking for was already right there.
-            </p>
+        {/* Right: body text on top, square image below */}
+        <div className="love-story__col love-story__col--right" ref={addParagraphRef}>
+          <p className="love-story__col-text">
+            In 2016, Precious and King reconnected and quickly became best friends —
+            the kind who shared everything, from everyday stories to their{' '}
+            <em className="love-story__em love-story__em--pink">"love problems."</em>{' '}
+            In 2023, something changed. What was once easy and familiar grew into something
+            deeper and more intentional. They chose each other, not just as best friends,
+            but as{' '}
+            <em className="love-story__em love-story__em--blue">partners.</em>
+          </p>
+          <div className="love-story__col-img-wrap love-story__col-img--square">
+            <img
+              src="https://images.unsplash.com/photo-1511285560929-80b5c7f90db3?auto=format&fit=crop&w=600&q=80"
+              alt="A detail from their story"
+              className="love-story__col-img is-bw"
+              loading="lazy"
+            />
+            <div className="love-story__col-grain" aria-hidden="true" />
           </div>
         </div>
 
-        <div className="love-story__paragraph love-story__paragraph--center" ref={addParagraphRef}>
-          <div className="love-story__para-inner love-story__para-inner--wide">
-            <p>
-              In 2023, something changed. What was once easy and familiar grew into something
-              deeper and more intentional. They chose each other, not just as best friends,
-              but as{' '}
-              <em className="love-story__em love-story__em--blue">partners.</em>
-            </p>
-          </div>
-        </div>
       </div>
 
       {/* ── Horizontal prenup gallery ─────────────────────────────────────── */}

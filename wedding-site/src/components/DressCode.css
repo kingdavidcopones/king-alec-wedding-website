@@ -4,7 +4,7 @@
   border-top: var(--border-subtle);
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  transition: opacity var(--dur-slow) var(--ease-out-expo), transform var(--dur-slow) var(--ease-out-expo);
 }
 
 .dresscode.is-visible {
@@ -46,7 +46,7 @@
 
 .dresscode__attire-badge {
   display: inline-block;
-  padding: 0.5rem 1rem;
+  padding: var(--space-2) var(--space-3);
   background: var(--color-charcoal);
   color: var(--color-dirty-white);
   font-family: var(--font-accent-print);
@@ -148,7 +148,7 @@
 }
 
 .dresscode__rule-icon.is-no {
-  color: #CC3333;
+  color: var(--color-error);
 }
 
 .dresscode__rule-who {

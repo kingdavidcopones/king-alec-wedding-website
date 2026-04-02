@@ -1,9 +1,10 @@
 .gift {
-  background: var(--color-charcoal);
+  background: var(--color-dirty-white);
   padding: var(--space-16) 0 var(--space-12);
+  border-top: var(--border-subtle);
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+  transition: opacity var(--dur-slow) var(--ease-out-expo), transform var(--dur-slow) var(--ease-out-expo);
 }
 
 .gift.is-visible {
@@ -11,16 +12,11 @@
   transform: translateY(0);
 }
 
-/* section-label override for dark bg */
-.gift .section-label {
-  color: var(--color-orange);
-}
-
 /* ── Header ──────────────────────────────────── */
 
 .gift__header {
   padding-bottom: var(--space-8);
-  border-bottom: 1px solid rgba(248, 248, 247, 0.12);
+  border-bottom: 1px solid rgba(17,25,23,0.12);
   margin-bottom: var(--space-8);
 }
 
@@ -30,7 +26,7 @@
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.0;
-  color: var(--color-dirty-white);
+  color: var(--color-charcoal);
   margin-top: var(--space-4);
 }
 
@@ -55,7 +51,7 @@
   font-weight: 300;
   letter-spacing: -0.01em;
   line-height: 1.7;
-  color: rgba(248, 248, 247, 0.6);
+  color: rgba(17,25,23,0.55);
   max-width: 480px;
   margin-bottom: var(--space-4);
 }
@@ -69,7 +65,7 @@
   font-family: var(--font-body);
   font-size: var(--text-sm);
   letter-spacing: -0.01em;
-  color: rgba(248, 248, 247, 0.35);
+  color: rgba(17,25,23,0.35);
 }
 
 /* ── QR ──────────────────────────────────────── */
@@ -83,7 +79,7 @@
 }
 
 .gift__qr-wrap {
-  border: 1px solid rgba(248, 248, 247, 0.15);
+  border: 1px solid rgba(17,25,23,0.15);
   padding: var(--space-4);
 }
 
@@ -93,20 +89,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(248, 248, 247, 0.08);
+  border: 1px solid rgba(17,25,23,0.08);
 }
 
 .gift__qr-accent {
   font-family: var(--font-accent);
   font-size: clamp(2.5rem, 5vw, 4rem);
-  color: rgba(248, 248, 247, 0.1);
+  color: rgba(17,25,23,0.1);
   line-height: 1;
 }
 
 .gift__qr-note {
   font-family: var(--font-accent);
   font-size: var(--text-sm);
-  color: rgba(248, 248, 247, 0.3);
+  color: rgba(17,25,23,0.3);
 }
 
 /* ── Responsive ──────────────────────────────── */

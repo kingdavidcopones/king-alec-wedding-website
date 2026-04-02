@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import './Navbar.css'
 
 const NAV_LINKS = [
-  { label: 'Love Story', href: '#love-story' },
+  { label: 'Their Story', href: '#love-story' },
   { label: 'Details', href: '#details' },
   { label: 'Entourage', href: '#entourage' },
   { label: 'RSVP', href: '#rsvp' },
@@ -13,9 +13,14 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
+    const hero = document.getElementById('hero')
+    if (!hero) return
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { threshold: 0 }
+    )
+    observer.observe(hero)
+    return () => observer.disconnect()
   }, [])
 
   const handleLinkClick = () => setMenuOpen(false)
@@ -27,7 +32,7 @@ export default function Navbar() {
           <img
             src="/king-and-alec-horizontal-color.svg"
             alt="King & Alec"
-            height="40"
+            height="30"
           />
         </a>
 
@@ -39,7 +44,10 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <a href="#rsvp" className="btn-primary navbar__cta">RSVP</a>
+        <div className="navbar__info">
+          <span>April 10, 2027</span>
+          <span>Our Haven, Tagaytay City</span>
+        </div>
 
         <button
           className={`navbar__hamburger${menuOpen ? ' is-open' : ''}`}
@@ -60,9 +68,6 @@ export default function Navbar() {
             {link.label}
           </a>
         ))}
-        <a href="#rsvp" className="btn-primary navbar__mobile-cta" onClick={handleLinkClick}>
-          RSVP
-        </a>
       </div>
     </header>
   )

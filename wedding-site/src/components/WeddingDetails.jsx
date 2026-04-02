@@ -32,75 +32,78 @@ export default function WeddingDetails() {
 
   return (
     <section className="details" id="details" aria-label="Wedding Details" ref={sectionRef}>
-
-      {/* ── Date display ── */}
       <div className="section-container">
-        <div className="details__top">
-          <span className="section-label">The Day</span>
-          <div className="details__date-lockup">
-            <span className="details__join-us">join us on</span>
-            <p className="details__date-line">April 10,</p>
-            <p className="details__year-line">2027</p>
+        <div className="details__grid">
+
+          {/* ── Col 1: The Anchor ── */}
+          <div className="details__col-anchor">
+            <span className="section-label">The Day</span>
+            <div className="details__date-lockup">
+              <p className="details__date-line">April 10,</p>
+              <p className="details__year-line">2027</p>
+              <span className="details__see-you" aria-hidden="true">See you there!</span>
+            </div>
+            <div className="details__venue-block">
+              <p className="details__venue-name">Our Haven, Indang, Cavite</p>
+              <p className="details__venue-note">Ceremony &amp; Reception in one place</p>
+            </div>
           </div>
-        </div>
 
-        {/* ── Venue strip ── */}
-        <div className="details__venue-row">
-          <p className="details__venue-name">Our Haven, Tagaytay</p>
-          <p className="details__venue-note">Ceremony &amp; Reception in one place</p>
-        </div>
+          {/* ── Col 2: The Schedule Timeline ── */}
+          <div className="details__col-timeline">
+            <ol className="details__schedule" role="list">
+              {SCHEDULE.map((item, i) => (
+                <li
+                  key={i}
+                  className="details__schedule-item"
+                  style={{
+                    '--node-delay': `${i * 120}ms`,
+                    '--item-delay': `${i * 90}ms`,
+                  }}
+                >
+                  <span className="details__schedule-time">{item.time}</span>
+                  <span className="details__schedule-label">{item.label}</span>
+                  {item.note && <span className="details__schedule-note">{item.note}</span>}
+                </li>
+              ))}
+            </ol>
+          </div>
 
-        {/* ── Schedule — horizontal ── */}
-        <ol className="details__schedule-row" role="list">
-          {SCHEDULE.map((item, i) => (
-            <li
-              key={i}
-              className="details__schedule-item"
-              style={{ transitionDelay: `${i * 90}ms` }}
-            >
-              <span className="details__schedule-time">{item.time}</span>
-              <span className="details__schedule-label">{item.label}</span>
-              {item.note && <span className="details__schedule-note">{item.note}</span>}
-            </li>
-          ))}
-        </ol>
-      </div>
+          {/* ── Col 3: The Map & Logistics ── */}
+          <div className="details__col-map">
+            <div className="details__map-container">
+              <iframe
+                src={MAP_SRC}
+                title="Our Haven Events Place, Tagaytay"
+                aria-label="Map to Our Haven Events Place, Tagaytay"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <div className="details__parking">
+              <svg
+                className="details__parking-icon"
+                viewBox="0 0 24 24"
+                width="18"
+                height="18"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                aria-hidden="true"
+              >
+                <rect x="3" y="3" width="18" height="18" />
+                <path d="M9 17V7h4a3 3 0 0 1 0 6H9" />
+              </svg>
+              <p>
+                The venue provides parking space for up to{' '}
+                <strong>80 cars</strong>, ensuring ample parking for all guests.
+              </p>
+            </div>
+          </div>
 
-      {/* ── Map — full bleed ── */}
-      <div className="details__map-bleed">
-        <iframe
-          src={MAP_SRC}
-          title="Our Haven Events Place, Tagaytay"
-          aria-label="Map to Our Haven Events Place, Tagaytay"
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        />
-      </div>
-
-      {/* ── Parking footnote ── */}
-      <div className="section-container">
-        <div className="details__parking">
-          <svg
-            className="details__parking-icon"
-            viewBox="0 0 24 24"
-            width="18"
-            height="18"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.5"
-            aria-hidden="true"
-          >
-            <rect x="3" y="3" width="18" height="18" />
-            <path d="M9 17V7h4a3 3 0 0 1 0 6H9" />
-          </svg>
-          <p>
-            The venue provides parking space for up to{' '}
-            <strong>80 cars</strong>, ensuring ample parking for all guests.
-          </p>
         </div>
       </div>
-
     </section>
   )
 }

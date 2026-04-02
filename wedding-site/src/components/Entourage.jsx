@@ -96,7 +96,12 @@ const ENTOURAGE = [
   },
 ]
 
-function EntourageGroup({ group, delay }) {
+// Tier splits
+const PRINCIPAL = ENTOURAGE.slice(0, 1)
+const PARTY     = ENTOURAGE.slice(1, 8)
+const KIDS      = ENTOURAGE.slice(8)
+
+function EntourageGroup({ group, delay, featured = false }) {
   const ref = useRef(null)
 
   useEffect(() => {
@@ -117,7 +122,7 @@ function EntourageGroup({ group, delay }) {
 
   return (
     <div
-      className="entourage__group"
+      className={`entourage__group${featured ? ' entourage__group--featured' : ''}`}
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
     >
@@ -154,19 +159,35 @@ export default function Entourage() {
   return (
     <section className="entourage" id="entourage" aria-label="Wedding Entourage">
       <div className="section-container">
+
+        {/* ── Header ── */}
         <div className="entourage__header">
           <span className="section-label">The People</span>
           <h2 className="entourage__headline">
-            Our{' '}
-            <span className="entourage__headline-accent">Entourage</span>
+            Our
+            <span className="entourage__headline-accent"> Entourage</span>
           </h2>
         </div>
 
-        <div className="entourage__grid">
-          {ENTOURAGE.map((group, i) => (
+        {/* ── Tier 1: Principal Sponsors — full-width feature ── */}
+        <div className="entourage__tier entourage__tier--principal">
+          <EntourageGroup group={PRINCIPAL[0]} delay={0} featured />
+        </div>
+
+        {/* ── Tier 2: Wedding Party — editorial column strip ── */}
+        <div className="entourage__tier entourage__tier--party">
+          {PARTY.map((group, i) => (
             <EntourageGroup key={i} group={group} delay={i * 60} />
           ))}
         </div>
+
+        {/* ── Tier 3: Young members — compact two-col ── */}
+        <div className="entourage__tier entourage__tier--kids">
+          {KIDS.map((group, i) => (
+            <EntourageGroup key={i} group={group} delay={i * 80} />
+          ))}
+        </div>
+
       </div>
     </section>
   )

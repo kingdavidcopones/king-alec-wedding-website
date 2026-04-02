@@ -67,6 +67,7 @@
   --color-dirty-white: #F8F8F7;
   --color-charcoal: #111917;
   --color-white: #FFFFFF;
+  --color-error: #CC3333;
 
   /* Typography */
   --font-body: 'Neue Haas Grotesk', 'Inter', system-ui, sans-serif;
@@ -98,6 +99,7 @@
   --space-4:  clamp(1rem,    2vw, 2rem);
   --space-6:  clamp(1.5rem,  3vw, 3rem);
   --space-8:  clamp(2rem,    4vw, 5rem);
+  --space-10: clamp(2.5rem,  5vw, 6.5rem);
   --space-12: clamp(3rem,    6vw, 8rem);
   --space-16: clamp(4rem,    8vw, 12rem);
 
@@ -178,7 +180,7 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
   color: var(--color-white);
   font-family: var(--font-body);
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   border: 1px solid var(--color-orange);
@@ -235,10 +237,10 @@ button { cursor: pointer; font-family: inherit; border: none; background: none; 
 
 .section-label {
   font-family: var(--font-accent-print);
-  font-size: var(--text-xs);
+  font-size: clamp(1.125rem, 1.05rem + 0.30vw, 1.3125rem);
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--color-orange);
+  color: var(--color-blue);
   display: block;
   margin-bottom: var(--space-3);
 }

@@ -1,8 +1,12 @@
+/* ── Section shell ─────────────────────────────────────────── */
+
 .entourage {
   background: var(--color-dirty-white);
-  padding: var(--space-16) 0;
+  padding: var(--space-16) 0 var(--space-12);
   border-top: var(--border-subtle);
 }
+
+/* ── Header ────────────────────────────────────────────────── */
 
 .entourage__header {
   margin-bottom: var(--space-10);
@@ -10,7 +14,7 @@
 
 .entourage__headline {
   font-family: var(--font-body);
-  font-size: var(--text-2xl);
+  font-size: clamp(3rem, 7vw, 7rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1.05;
@@ -23,18 +27,14 @@
   font-style: italic;
 }
 
-/* Grid */
-.entourage__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: var(--space-8) var(--space-6);
-}
+/* ── Group — shared base styles ───────────────────────────── */
 
-/* Group card */
 .entourage__group {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+  transition:
+    opacity var(--dur-slow) var(--ease-out-expo),
+    transform var(--dur-slow) var(--ease-out-expo);
 }
 
 .entourage__group.is-visible {
@@ -45,11 +45,12 @@
 .entourage__role {
   font-family: var(--font-accent);
   font-size: var(--text-md);
+  font-style: italic;
   color: var(--accent-color, var(--color-orange));
-  margin-bottom: var(--space-3);
   line-height: 1.2;
   border-bottom: 1px solid currentColor;
   padding-bottom: var(--space-2);
+  margin-bottom: var(--space-3);
   opacity: 0.9;
 }
 
@@ -69,16 +70,19 @@
   line-height: 1.5;
 }
 
-/* Subsections */
 .entourage__subsections {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3);
 }
 
 .entourage__subsection {
-  padding: var(--space-3) 0;
+  padding-bottom: var(--space-3);
   border-bottom: var(--border-subtle);
+}
+
+.entourage__subsection:last-child {
+  border-bottom: none;
 }
 
 .entourage__sublabel {
@@ -86,12 +90,166 @@
   font-size: var(--text-xs);
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(17,25,23,0.4);
-  margin-bottom: var(--space-2);
+  color: rgba(17, 25, 23, 0.4);
+  margin-bottom: var(--space-1);
+}
+
+/* ── Tier 1: Principal Sponsors ────────────────────────────── */
+
+.entourage__tier--principal {
+  border-top: var(--border-charcoal);
+  border-bottom: var(--border-charcoal);
+  padding: var(--space-8) 0;
+  margin-bottom: var(--space-8);
+}
+
+/* Principal Sponsors: role heading uses print font, small-caps style */
+.entourage__group--featured .entourage__role {
+  font-family: var(--font-accent-print);
+  font-style: normal;
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 1;
+  margin-bottom: var(--space-4);
+}
+
+/* Names in a three-column grid */
+.entourage__group--featured .entourage__names {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+.entourage__group--featured .entourage__name {
+  font-size: var(--text-sm);
+  padding: var(--space-3) var(--space-4) var(--space-3) 0;
+  border-bottom: var(--border-subtle);
+  letter-spacing: -0.01em;
+}
+
+/* ── Tier 2: Wedding Party ─────────────────────────────────── */
+
+/* 7 columns — one per role */
+.entourage__tier--party {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-top: var(--border-subtle);
+  border-bottom: var(--border-charcoal);
+  margin-bottom: var(--space-8);
+}
+
+.entourage__tier--party .entourage__group {
+  padding: var(--space-4) var(--space-3) var(--space-6) 0;
+  border-right: var(--border-subtle);
+}
+
+.entourage__tier--party .entourage__group:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.entourage__tier--party .entourage__role {
+  font-size: var(--text-sm);
+}
+
+.entourage__tier--party .entourage__name {
+  font-size: var(--text-sm);
+}
+
+/* ── Tier 3: Young Members ─────────────────────────────────── */
+
+.entourage__tier--kids {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+.entourage__tier--kids .entourage__group {
+  padding-top: var(--space-4);
+  border-top: var(--border-subtle);
+}
+
+.entourage__tier--kids .entourage__names {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-1) var(--space-4);
+}
+
+.entourage__tier--kids .entourage__name {
+  font-size: var(--text-sm);
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .entourage__tier--party {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* Rebalance borders for 4+3 wrap */
+  .entourage__tier--party .entourage__group:nth-child(4) {
+    border-right: none;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .entourage__group--featured .entourage__names {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .entourage__tier--party {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .entourage__tier--party .entourage__group:nth-child(3),
+  .entourage__tier--party .entourage__group:nth-child(6) {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .entourage__tier--party .entourage__group:nth-child(4) {
+    border-right: var(--border-subtle);
+    padding-right: var(--space-3);
+  }
 }
 
 @media (max-width: 600px) {
-  .entourage__grid {
+  .entourage__headline {
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .entourage__group--featured .entourage__names {
     grid-template-columns: 1fr;
+  }
+
+  .entourage__tier--party {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .entourage__tier--party .entourage__group {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .entourage__tier--party .entourage__group:nth-child(odd) {
+    border-right: var(--border-subtle);
+    padding-right: var(--space-3);
+  }
+
+  /* Reset any previously-set border-right overrides */
+  .entourage__tier--party .entourage__group:nth-child(even) {
+    border-right: none !important;
+    padding-right: 0 !important;
+  }
+
+  .entourage__tier--kids {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .entourage__tier--kids .entourage__names {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

@@ -115,11 +115,13 @@ export default function FAQs() {
     <section className="faqs" id="faqs" aria-label="Frequently Asked Questions" ref={sectionRef}>
       <div className="section-container">
         <div className="faqs__header">
-          <span className="section-label">FAQ</span>
-          <h2 className="faqs__headline">
-            Got questions?
-            <span className="faqs__headline-accent"> We have answers.</span>
-          </h2>
+          <span className="section-label">FAQs</span>
+          <div className="faqs__headline-block">
+            <h2 className="faqs__headline">
+              <span className="faqs__headline-main">Got questions?</span>
+              <span className="faqs__headline-accent">We have answers.</span>
+            </h2>
+          </div>
         </div>
 
         <div className="faqs__list" role="list">
