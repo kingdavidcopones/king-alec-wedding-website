@@ -83,6 +83,7 @@ export default function Hero() {
 
         <div className="hero__ctas" data-fade>
           <a href="#rsvp" className="btn-primary hero__btn-primary">RSVP Now</a>
+          <a href="https://giftful.com/wishlists/yTAIdIPfLm6rBH81inFF" target="_blank" rel="noopener noreferrer" className="btn-secondary hero__btn-secondary">Gift Registry</a>
         </div>
       </div>
 
