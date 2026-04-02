@@ -1,0 +1,237 @@
+.love-story {
+  padding-top: var(--space-16);
+  background: var(--color-dirty-white);
+  /* DO NOT set overflow:hidden here — it breaks GSAP ScrollTrigger pin.
+     overflow-x:clip prevents horizontal bleed without creating a new BFC
+     or clipping fixed/sticky descendants. */
+  overflow-x: clip;
+}
+
+/* Intro */
+.love-story__intro {
+  padding-bottom: var(--space-8);
+}
+
+.love-story__headline-block {
+  max-width: 700px;
+}
+
+.love-story__headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.05;
+}
+
+.love-story__headline-main {
+  font-family: var(--font-body);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--color-charcoal);
+}
+
+.love-story__headline-accent {
+  font-family: var(--font-accent);
+  font-size: var(--text-3xl);
+  color: var(--color-orange);
+  line-height: 1;
+}
+
+/* Narrative layout */
+.love-story__narrative {
+  display: grid;
+  gap: var(--space-12);
+  padding: var(--space-12) var(--grid-margin);
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.love-story__paragraph {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s var(--ease-out-expo), transform 0.7s var(--ease-out-expo);
+}
+
+.love-story__paragraph.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.love-story__paragraph--left .love-story__para-inner {
+  max-width: 540px;
+  margin-right: auto;
+}
+
+.love-story__paragraph--right .love-story__para-inner {
+  max-width: 540px;
+  margin-left: auto;
+}
+
+.love-story__paragraph--center .love-story__para-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.love-story__para-inner p {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 300;
+  letter-spacing: -0.01em;
+  line-height: 1.75;
+  color: var(--color-charcoal);
+}
+
+.love-story__em {
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 1.15em;
+  color: var(--color-orange);
+}
+
+.love-story__em--pink { color: var(--color-pink); }
+.love-story__em--blue { color: var(--color-blue); }
+
+/* ---- Horizontal Gallery ---- */
+.love-story__gallery-section {
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.love-story__gallery-track {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  height: 100%;
+  padding: 0 var(--grid-margin);
+  will-change: transform;
+}
+
+.love-story__gallery-item {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.love-story__gallery-item--large {
+  width: clamp(360px, 35vw, 560px);
+}
+
+.love-story__gallery-item--medium {
+  width: clamp(280px, 26vw, 420px);
+}
+
+.love-story__gallery-item--small {
+  width: clamp(200px, 18vw, 300px);
+}
+
+.love-story__gallery-item--tall {
+  width: clamp(220px, 20vw, 340px);
+}
+
+.love-story__gallery-img-wrap {
+  position: relative;
+  overflow: hidden;
+  border: var(--border-subtle);
+}
+
+.love-story__gallery-item--large .love-story__gallery-img-wrap {
+  height: clamp(300px, 50vh, 520px);
+}
+
+.love-story__gallery-item--medium .love-story__gallery-img-wrap {
+  height: clamp(260px, 45vh, 440px);
+}
+
+.love-story__gallery-item--small .love-story__gallery-img-wrap {
+  height: clamp(200px, 35vh, 320px);
+}
+
+.love-story__gallery-item--tall .love-story__gallery-img-wrap {
+  height: clamp(320px, 58vh, 580px);
+}
+
+.love-story__gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease-out-expo);
+}
+
+.love-story__gallery-img-wrap:hover .love-story__gallery-img {
+  transform: scale(1.04);
+}
+
+.love-story__gallery-img.is-bw {
+  filter: grayscale(100%);
+}
+
+.love-story__gallery-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+  opacity: 0.3;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.love-story__gallery-caption {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(17,25,23,0.55);
+}
+
+/* Outro */
+.love-story__outro {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+  display: grid;
+  gap: var(--space-12);
+}
+
+.love-story__paragraph--closing .love-story__para-inner {
+  border-left: 2px solid var(--color-orange);
+  padding-left: var(--space-4);
+}
+
+.love-story__quote {
+  font-family: var(--font-accent);
+  font-size: var(--text-lg);
+  color: var(--color-charcoal);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+@media (max-width: 768px) {
+  .love-story__narrative {
+    gap: var(--space-8);
+  }
+  .love-story__paragraph--left .love-story__para-inner,
+  .love-story__paragraph--right .love-story__para-inner {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  /* Disable horizontal scroll on mobile — show as vertical scroll instead */
+  .love-story__gallery-section {
+    height: auto;
+    overflow: visible;
+  }
+  .love-story__gallery-track {
+    flex-direction: column;
+    height: auto;
+    padding: var(--space-4) var(--grid-margin);
+  }
+  .love-story__gallery-item {
+    width: 100% !important;
+  }
+  .love-story__gallery-item .love-story__gallery-img-wrap {
+    height: clamp(240px, 55vw, 380px) !important;
+  }
+}

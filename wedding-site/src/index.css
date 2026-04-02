@@ -1,0 +1,244 @@
+/* ============================================
+   KING & ALEC WEDDING — DESIGN SYSTEM TOKENS
+   ============================================ */
+
+/* Fonts */
+@font-face {
+  font-family: 'Belmonte Ballpoint';
+  src: url('/fonts/Belmonte Ballpoint Cursive.woff2') format('woff2'),
+       url('/fonts/Belmonte Ballpoint Cursive.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Belmonte Ballpoint Print';
+  src: url('/fonts/Belmonte Ballpoint Print.woff2') format('woff2'),
+       url('/fonts/Belmonte Ballpoint Print.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NeueHaasDisplay-Roman.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NeueHaasDisplay-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NeueHaasDisplay-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Neue Haas Grotesk';
+  src: url('/fonts/NeueHaasDisplay-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   CSS CUSTOM PROPERTIES — DESIGN TOKENS
+   ============================================ */
+:root {
+  /* Colors */
+  --color-orange: #E35619;
+  --color-pink: #FF3E8F;
+  --color-blue: #007CEF;
+  --color-yellow: #E8B80D;
+  --color-violet: #C640E1;
+  --color-green: #068E40;
+  --color-dirty-white: #F8F8F7;
+  --color-charcoal: #111917;
+  --color-white: #FFFFFF;
+
+  /* Typography */
+  --font-body: 'Neue Haas Grotesk', 'Inter', system-ui, sans-serif;
+  --font-accent: 'Belmonte Ballpoint', cursive;
+  --font-accent-print: 'Belmonte Ballpoint Print', cursive;
+
+  /* Type Scale — calibrated for 320px → 1440px viewport range
+     xs   12 → 14px   labels, captions, legal-fine
+     sm   14 → 16px   helper text, small UI
+     base 16 → 18px   reading body copy
+     md   18 → 22px   lead / editorial body
+     lg   22 → 28px   subsection headings
+     xl   28 → 40px   section headings
+     2xl  36 → 52px   major headings
+     3xl  48 → 72px   display-only (countdown digits, hero script) */
+  --text-xs:   clamp(0.75rem,  0.70rem  + 0.20vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.83rem  + 0.25vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem  + 0.25vw, 1.125rem);
+  --text-md:   clamp(1.125rem, 1rem     + 0.50vw, 1.375rem);
+  --text-lg:   clamp(1.375rem, 1.15rem  + 0.90vw, 1.75rem);
+  --text-xl:   clamp(1.75rem,  1.30rem  + 1.75vw, 2.5rem);
+  --text-2xl:  clamp(2.25rem,  1.70rem  + 2.25vw, 3.25rem);
+  --text-3xl:  clamp(3rem,     2.10rem  + 3.50vw, 4.5rem);
+
+  /* Spacing */
+  --space-1:  clamp(0.25rem, 0.5vw, 0.5rem);
+  --space-2:  clamp(0.5rem,  1vw, 1rem);
+  --space-3:  clamp(0.75rem, 1.5vw, 1.5rem);
+  --space-4:  clamp(1rem,    2vw, 2rem);
+  --space-6:  clamp(1.5rem,  3vw, 3rem);
+  --space-8:  clamp(2rem,    4vw, 5rem);
+  --space-12: clamp(3rem,    6vw, 8rem);
+  --space-16: clamp(4rem,    8vw, 12rem);
+
+  /* Borders */
+  --border-charcoal: 1px solid var(--color-charcoal);
+  --border-white: 1px solid var(--color-white);
+  --border-subtle: 1px solid rgba(17, 25, 23, 0.15);
+  --border-orange: 1px solid var(--color-orange);
+
+  /* Motion — Easing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-sine: cubic-bezier(0.37, 0, 0.63, 1);
+
+  /* Motion — Duration */
+  --dur-fast: 150ms;
+  --dur-ui: 250ms;
+  --dur-transition: 400ms;
+  --dur-slow: 600ms;
+
+  /* Geometry */
+  --radius: 0px;
+
+  /* Grid */
+  --grid-margin: clamp(1.5rem, 5vw, 6rem);
+  --nav-height: 64px;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* All section anchors offset by navbar height so links don't hide behind the fixed nav */
+section[id] {
+  scroll-margin-top: var(--nav-height);
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-charcoal);
+  background-color: var(--color-dirty-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+}
+
+a { color: inherit; text-decoration: none; }
+
+button { cursor: pointer; font-family: inherit; border: none; background: none; }
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: var(--color-orange);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-orange);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease-out-expo),
+    color var(--dur-fast) var(--ease-out-expo),
+    border-color var(--dur-fast) var(--ease-out-expo);
+}
+.btn-primary:hover {
+  background: var(--color-charcoal);
+  border-color: var(--color-charcoal);
+}
+.btn-primary:focus-visible {
+  outline: 2px solid var(--color-orange);
+  outline-offset: 3px;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 2rem;
+  background: transparent;
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid var(--color-white);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition:
+    background var(--dur-fast) var(--ease-out-expo),
+    color var(--dur-fast) var(--ease-out-expo);
+}
+.btn-secondary:hover {
+  background: var(--color-white);
+  color: var(--color-charcoal);
+}
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 3px;
+}
+
+.section-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--grid-margin);
+}
+
+.section-label {
+  font-family: var(--font-accent-print);
+  font-size: var(--text-xs);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  display: block;
+  margin-bottom: var(--space-3);
+}
