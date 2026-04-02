@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd wedding-site && npm run build",
-  "outputDirectory": "wedding-site/dist",
-  "installCommand": "cd wedding-site && npm install",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "npm install",
   "framework": "vite",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
