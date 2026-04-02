@@ -1,5 +1,4 @@
 {
-  "root": "wedding-site",
   "buildCommand": "npm run build",
   "outputDirectory": "wedding-site/dist",
   "installCommand": "npm install",
