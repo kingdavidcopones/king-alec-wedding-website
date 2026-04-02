@@ -1,48 +1,28 @@
 import { useState, useRef, useEffect } from 'react'
 import './RSVP.css'
 
-// Guest list — searchable dropdown
-const GUEST_LIST = [
-  // Principal Sponsors
-  'Mark Martin', 'Lara Martin',
-  'Macairog Santos Jr.', 'Mickey Santos',
-  'George De Guzman', 'Lyn Laguisma',
-  'Joseph Magtalas', 'Anne Magtalas',
-  'Hepty Santos Jr.', 'Vivian Santos',
-  'Mayette Acuna', 'Josephine Garcia',
-  // Secondary Sponsors
-  'Miguel Jerico Onofre', 'Nicole Laguisma',
-  'Marc Arnold Mateo', 'Jiane Trishia Magtalas',
-  'John Lenmer Laguisma', 'Marian Angelique Garcia',
-  // Wedding Party
-  'Eric Marc Martin',
-  'Justin Lope', 'Lesther Laguisma', 'Justin Guevara',
-  'Anton Geronimo', 'Aizen Paman', 'Rafael San Andres', 'Jed Bambo',
-  'Rhoal Mica Esteban', 'Elijah Esteban',
-  'Kimberly Dianne Copones',
-  'Trisha Calucod',
-  'Noelle Lim', 'Chin Wong', 'Kaye Atendido',
-  'Chynna Esteban', 'Jaila Villacarlos', 'Bea Villanueva', 'Mikaela Onofre',
-  // Kids
-  'Julia Bagares', 'Zyreen Castillo', 'Francine Casino',
-  'Blessie Marie Atendido', 'Jastine Javier', 'Micaiah Castroverde',
-  'Ashzaira Rodriguez', 'Mischa Calison', 'Nika Tamayo',
-  'Archie', 'Bruno',
-].sort()
-
 export default function RSVP() {
+  const [guestList, setGuestList] = useState([])
   const [query, setQuery] = useState('')
   const [selected, setSelected] = useState('')
   const [open, setOpen] = useState(false)
   const [submitted, setSubmitted] = useState(false)
   const [error, setError] = useState('')
+  const [submitting, setSubmitting] = useState(false)
   const sectionRef = useRef(null)
   const inputRef = useRef(null)
   const dropdownRef = useRef(null)
 
   const filtered = query.length > 0
-    ? GUEST_LIST.filter((g) => g.toLowerCase().includes(query.toLowerCase()))
+    ? guestList.filter((g) => g.toLowerCase().includes(query.toLowerCase()))
     : []
+
+  useEffect(() => {
+    fetch('/api/guests')
+      .then((r) => r.json())
+      .then((data) => setGuestList(data.guests ?? []))
+      .catch(() => {}) // fails silently; user can still type and we validate on submit
+  }, [])
 
   useEffect(() => {
     const el = sectionRef.current
@@ -90,13 +70,30 @@ export default function RSVP() {
     setError('')
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (!selected) {
       setError('Please select your name from the guest list.')
       return
     }
-    setSubmitted(true)
+    setSubmitting(true)
+    try {
+      const res = await fetch('/api/rsvp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name: selected }),
+      })
+      if (!res.ok) {
+        const data = await res.json()
+        setError(data.error ?? 'Something went wrong. Please try again.')
+        return
+      }
+      setSubmitted(true)
+    } catch {
+      setError('Something went wrong. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -184,8 +181,12 @@ export default function RSVP() {
                 )}
               </div>
 
-              <button type="submit" className="btn-primary rsvp__submit">
-                Confirm Attendance
+              <button
+                type="submit"
+                className="btn-primary rsvp__submit"
+                disabled={submitting}
+              >
+                {submitting ? 'Confirming…' : 'Confirm Attendance'}
               </button>
             </form>
           ) : (
@@ -196,9 +197,6 @@ export default function RSVP() {
                 We can't wait to celebrate with you!
                 <br />
                 See you on April 10, 2027.
-              </p>
-              <p className="rsvp__success-note">
-                (Please note: this is a preview. Final RSVP system will be integrated closer to the date.)
               </p>
             </div>
           )}
