@@ -21,7 +21,7 @@ export default function RSVP() {
     fetch('/api/guests')
       .then((r) => r.json())
       .then((data) => setGuestList(data.guests ?? []))
-      .catch(() => {}) // fails silently; user can still type and we validate on submit
+      .catch(() => { }) // fails silently; user can still type and we validate on submit
   }, [])
 
   useEffect(() => {
@@ -191,13 +191,17 @@ export default function RSVP() {
             </form>
           ) : (
             <div className="rsvp__success" role="status">
-              <p className="rsvp__success-icon" aria-hidden="true">✦</p>
               <p className="rsvp__success-name">{selected}</p>
-              <p className="rsvp__success-msg">
-                We can't wait to celebrate with you!
-                <br />
-                See you on April 10, 2027.
-              </p>
+              <p className="rsvp__success-msg">We can't wait to celebrate with you!</p>
+              <p className="rsvp__success-date">See you on April 10, 2027.</p>
+              <div className="rsvp__success-sign">
+                <span className="rsvp__success-love">love,</span>
+                <img
+                  src="/king-and-alec-logo-color.svg"
+                  alt="King & Alec"
+                  className="rsvp__success-logo"
+                />
+              </div>
             </div>
           )}
         </div>
