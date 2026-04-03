@@ -39,19 +39,31 @@
 .rsvp__label { color: var(--color-orange); }
 
 .rsvp__headline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  line-height: 1.05;
+  margin-bottom: var(--space-6);
+}
+
+.rsvp__headline-main {
   font-family: var(--font-body);
   font-size: var(--text-2xl);
   font-weight: 700;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
+  letter-spacing: -0.05em;
   color: var(--color-charcoal);
-  margin-bottom: var(--space-6);
+  text-transform: uppercase;
+  line-height: 1.0;
 }
 
 .rsvp__headline-accent {
   font-family: var(--font-accent);
-  font-style: italic;
+  font-size: var(--text-3xl);
   color: var(--color-orange);
+  line-height: 1;
+  display: block;
+  margin-top: -0.3em;
+  margin-left: 0.6em;
 }
 
 .rsvp__deadline {

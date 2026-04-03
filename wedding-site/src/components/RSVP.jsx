@@ -111,8 +111,8 @@ export default function RSVP() {
           <div className="rsvp__text">
             <span className="section-label rsvp__label">RSVP</span>
             <h2 className="rsvp__headline">
-              Will you
-              <span className="rsvp__headline-accent"> join us?</span>
+              <span className="rsvp__headline-main">YOUR PRESENCE IS</span>
+              <span className="rsvp__headline-accent">the greatest gift.</span>
             </h2>
             <p className="rsvp__deadline">
               Please RSVP by{' '}
