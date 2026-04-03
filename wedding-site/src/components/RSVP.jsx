@@ -197,7 +197,7 @@ export default function RSVP() {
               <div className="rsvp__success-sign">
                 <span className="rsvp__success-love">love,</span>
                 <img
-                  src="/king-and-alec-logo-color.svg"
+                  src="/king-and-alec-faces.svg"
                   alt="King & Alec"
                   className="rsvp__success-logo"
                 />
