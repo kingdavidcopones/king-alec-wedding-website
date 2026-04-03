@@ -7,7 +7,6 @@ import WeddingDetails from './components/WeddingDetails'
 import DressCode from './components/DressCode'
 import FAQs from './components/FAQs'
 import Entourage from './components/Entourage'
-import GiftRegistry from './components/GiftRegistry'
 import RSVP from './components/RSVP'
 import Footer from './components/Footer'
 
@@ -23,8 +22,7 @@ function App() {
         <DressCode />
         <FAQs />
         <Entourage />
-        <GiftRegistry />
-        <RSVP />
+<RSVP />
       </main>
       <Footer />
     </>

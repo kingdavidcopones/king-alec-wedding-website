@@ -15,7 +15,7 @@ const GUESTS = [
   // Wedding Party
   'Eric Marc Martin',
   'Justin Lope', 'Lesther Laguisma', 'Justin Guevara',
-  'Anton Geronimo', 'Aizen Paman', 'Rafael San Andres', 'Jed Bambo',
+  'Anton Geronimo', 'Aizen Paman', 'Rafael San Andres', 'Jedidiah Bambo',
   'Rhoal Mica Esteban', 'Elijah Esteban',
   'Kimberly Dianne Copones',
   'Trisha Calucod',
