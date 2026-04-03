@@ -60,8 +60,8 @@
 
 .countdown__value {
   font-family: var(--font-body);
-  font-size: var(--text-3xl);
-  font-weight: 700;
+  font-size: calc(var(--text-3xl) * 1.25);
+  font-weight: 300;
   letter-spacing: -0.04em;
   line-height: 1;
   color: var(--color-charcoal);

@@ -109,7 +109,7 @@ export default function RSVP() {
       <div className="section-container rsvp__container">
         <div className="rsvp__inner">
           <div className="rsvp__text">
-            <span className="section-label rsvp__label">RSVP</span>
+            <span className="section-label">RSVP</span>
             <h2 className="rsvp__headline">
               <span className="rsvp__headline-main">YOUR PRESENCE IS</span>
               <span className="rsvp__headline-accent">the greatest gift.</span>
