@@ -132,28 +132,8 @@ export default function Entourage() {
             </div>
           </EntourageBox>
 
-          {/* Box 3: What to call? */}
+          {/* Box 3: Groom's */}
           <EntourageBox delay={100}>
-            <h3 className="entourage__box-title" style={{ color: 'var(--color-violet)' }}>Honor Attendants</h3>
-            <div className="entourage__grid-2">
-              <div className="entourage__col">
-                <div className="entourage__sub-role entourage__sub-role--first">Men of Honor</div>
-                <div className="entourage__pair">
-                  <div className="entourage__name"><SplitName>Rhoal Mica Esteban</SplitName></div>
-                  <div className="entourage__name"><SplitName>Elijah Esteban</SplitName></div>
-                </div>
-              </div>
-              <div className="entourage__col">
-                <div className="entourage__sub-role entourage__sub-role--first">Lady of Honor</div>
-                <div className="entourage__pair">
-                  <div className="entourage__name"><SplitName>Kimberly Dianne Copones</SplitName></div>
-                </div>
-              </div>
-            </div>
-          </EntourageBox>
-
-          {/* Box 4: Groom's */}
-          <EntourageBox delay={150}>
             <h3 className="entourage__box-title" style={{ color: 'var(--color-orange)' }}>Groom's</h3>
             <div className="entourage__col" style={{ width: '100%' }}>
               <div className="entourage__sub-role entourage__sub-role--first">Best man</div>
@@ -186,13 +166,30 @@ export default function Entourage() {
             </div>
           </EntourageBox>
 
-          {/* Box 5: Bride's */}
-          <EntourageBox delay={200}>
+          {/* Box 4: Bride's */}
+          <EntourageBox delay={150}>
             <h3 className="entourage__box-title" style={{ color: 'var(--color-blue)' }}>Bride's</h3>
             <div className="entourage__col" style={{ width: '100%' }}>
-              <div className="entourage__sub-role entourage__sub-role--first">Maid of Honor</div>
-              <div className="entourage__pair">
-                <div className="entourage__name"><SplitName>Trisha Calucod</SplitName></div>
+              <div className="entourage__grid-3">
+                <div className="entourage__col">
+                  <div className="entourage__sub-role entourage__sub-role--first">Men of Honor</div>
+                  <div className="entourage__pair">
+                    <div className="entourage__name"><SplitName>Rhoal Mica Esteban</SplitName></div>
+                    <div className="entourage__name"><SplitName>Elijah Esteban</SplitName></div>
+                  </div>
+                </div>
+                <div className="entourage__col">
+                  <div className="entourage__sub-role entourage__sub-role--first">Maid of Honor</div>
+                  <div className="entourage__pair">
+                    <div className="entourage__name"><SplitName>Trisha Calucod</SplitName></div>
+                  </div>
+                </div>
+                <div className="entourage__col">
+                  <div className="entourage__sub-role entourage__sub-role--first">Lady of Honor</div>
+                  <div className="entourage__pair">
+                    <div className="entourage__name"><SplitName>Kimberly Dianne Copones</SplitName></div>
+                  </div>
+                </div>
               </div>
 
               <div className="entourage__sub-role">Bridesmaids</div>
@@ -245,8 +242,8 @@ export default function Entourage() {
             </div>
           </EntourageBox>
 
-          {/* Box 6: Bearers */}
-          <EntourageBox delay={250}>
+          {/* Box 5: Bearers */}
+          <EntourageBox delay={200}>
             <h3 className="entourage__box-title" style={{ color: 'var(--color-yellow)' }}>Bearers</h3>
             <div className="entourage__grid-3">
               <div className="entourage__col">

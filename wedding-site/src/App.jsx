@@ -22,7 +22,7 @@ function App() {
         <DressCode />
         <FAQs />
         <Entourage />
-<RSVP />
+        <RSVP />
       </main>
       <Footer />
     </>

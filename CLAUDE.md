@@ -20,7 +20,7 @@ No test suite is configured.
 A single-page React app built with Vite. The page is a linear sequence of full-section components rendered in `App.jsx` — no routing.
 
 **Section order** (matches page scroll order):
-`Navbar → Hero → Countdown → LoveStory → WeddingDetails → DressCode → FAQs → Entourage → GiftRegistry → RSVP → Footer`
+`Navbar → Hero → Countdown → LoveStory → WeddingDetails → DressCode → FAQs → Entourage → RSVP → Footer`
 
 Each section lives in `src/components/<Name>.jsx` with a co-located `<Name>.css`. There is no shared component library — sections are self-contained.
 

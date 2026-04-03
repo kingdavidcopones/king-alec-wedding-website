@@ -9,7 +9,7 @@ const SCHEDULE = [
 ]
 
 const MAP_SRC =
-  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3485.998364607661!2d120.86648957460231!3d14.144698786289378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd82c6ec8c3e05%3A0xfbb55f885037e7a4!2sOur%20Haven%20Events%20Place!5e1!3m2!1sen!2sph!4v1775106545014!5m2!1sen!2sph'
+  'https://www.google.com/maps/embed?pb=!4v1775210178496!6m8!1m7!1sLEsGm6N7gvFeTZw-rt-WDA!2m2!1d14.14495665999267!2d120.8690200957345!3f112.4554418928526!4f-23.11673910648291!5f0.7820865974627469'
 
 export default function WeddingDetails() {
   const sectionRef = useRef(null)
@@ -45,7 +45,7 @@ export default function WeddingDetails() {
             </div>
             <div className="details__venue-block">
               <p className="details__venue-name">Our Haven, Indang, Cavite</p>
-              <p className="details__venue-note">Ceremony &amp; Reception in one place</p>
+              <p className="details__schedule-note">Ceremony &amp; Reception in one place.</p>
             </div>
           </div>
 

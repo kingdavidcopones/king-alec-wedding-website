@@ -88,15 +88,12 @@
   font-weight: 300;
   color: rgba(17,25,23,0.25);
   line-height: 1;
-  margin-bottom: clamp(16px, 3vw, 28px);
-  align-self: flex-start;
+  align-self: center;
+  margin-bottom: calc(var(--text-xs) * 1.2 + var(--space-2));
 }
 
 @media (max-width: 480px) {
   .countdown__grid {
     gap: 0.5rem;
-  }
-  .countdown__sep {
-    font-size: var(--text-xl);
   }
 }
