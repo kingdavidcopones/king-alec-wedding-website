@@ -270,12 +270,16 @@
 }
 
 .rsvp__success-logo {
-  height: 100px;
+  height: 90px;
   width: auto;
 }
 
 @media (max-width: 900px) {
   .rsvp__inner {
     grid-template-columns: 1fr;
+  }
+
+  .rsvp__success-logo {
+    height: 80px;
   }
 }
