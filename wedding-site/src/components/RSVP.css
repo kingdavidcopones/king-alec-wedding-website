@@ -230,13 +230,37 @@
   margin-bottom: var(--space-4);
 }
 
+.rsvp__success-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: var(--space-2);
+}
+
+.rsvp__success-reset {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-orange);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: opacity var(--dur-fast) var(--ease-out-expo);
+}
+
+.rsvp__success-reset:hover {
+  opacity: 0.7;
+}
+
 .rsvp__success-sign {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0;
-  align-self: flex-end;
-  margin-right: var(--space-4);
 }
 
 .rsvp__success-love {
@@ -246,7 +270,7 @@
 }
 
 .rsvp__success-logo {
-  height: calc(40px * 1.2);
+  height: 100px;
   width: auto;
 }
 

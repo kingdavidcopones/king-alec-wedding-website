@@ -55,6 +55,13 @@ export default function RSVP() {
     return () => document.removeEventListener('mousedown', handler)
   }, [])
 
+  const handleReset = () => {
+    setSubmitted(false)
+    setSelected('')
+    setQuery('')
+    setError('')
+  }
+
   const selectGuest = (name) => {
     setSelected(name)
     setQuery(name)
@@ -194,13 +201,18 @@ export default function RSVP() {
               <p className="rsvp__success-name">{selected}</p>
               <p className="rsvp__success-msg">We can't wait to celebrate with you!</p>
               <p className="rsvp__success-date">See you on April 10, 2027.</p>
-              <div className="rsvp__success-sign">
-                <span className="rsvp__success-love">love,</span>
-                <img
-                  src="/king-and-alec-faces.svg"
-                  alt="King & Alec"
-                  className="rsvp__success-logo"
-                />
+              <div className="rsvp__success-footer">
+                <button className="rsvp__success-reset" onClick={handleReset}>
+                  RSVP Another?
+                </button>
+                <div className="rsvp__success-sign">
+                  <span className="rsvp__success-love">love,</span>
+                  <img
+                    src="/king-and-alec-faces.svg"
+                    alt="King & Alec"
+                    className="rsvp__success-logo"
+                  />
+                </div>
               </div>
             </div>
           )}
